@@ -6,6 +6,8 @@ import 'package:make_a_choice/widgets/right_box.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'widgets/text_up.dart';
 import 'widgets/up_row_three_widgets.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,10 @@ void main() async {
 
   await Parse().initialize(keyApplicationId, keyParseServerUrl,
       clientKey: keyClientKey, autoSendSessionId: true);
+
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   runApp(const MyApp());
 }
@@ -37,7 +43,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'NerdFont'),
+      theme: ThemeData(fontFamily: ''),
       home: FutureBuilder<List<String>>(
           future: _getListPrises(),
           initialData: const [],
@@ -82,29 +88,25 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
-          // mainAxisSize: MainAxisSize.max,
-          // crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // можно использовать если на размеры на планшете не совпадают и можно верхнюю строчку не прилеплять к верху экрана
+          // crossAxisAlignment : CrossAxisAlignment.center,
+          //   mainAxisSize : MainAxisSize.min,
           children: [
             const UpRowThreeWidgets(),
             const SizedBox(
-              height: 80,
+              height: 60,
             ),
-            const TextUp(
-                // toggle: true,
-                ),
+            const TextUp(),
             const SizedBox(
               height: 80,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 350,
+                  height: 350,
                   child: LeftBoxAnimation(
                     onClicked: () {
                       isOpenedLeft = !isOpenedLeft;
@@ -115,8 +117,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 350,
+                  height: 350,
                   child: RightBoxAnimation(
                     onClicked: () {
                       isOpenedRight = !isOpenedRight;
@@ -138,7 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),
-            // const ListDownScreen(),
           ],
         ),
       ),

@@ -38,6 +38,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # firebase_core: ^2.14.0
+  # firebase_analytics: ^10.4.3
+  # firebase_storage: ^11.2.4
 
 dev_dependencies:
   flutter_test:
@@ -58,12 +61,23 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    # - assets/fonts/
+    - assets/fonts/
 
-  fonts:
-    - family: NerdFont
-      fonts:
-        - asset: assets/fonts/3270NerdFontPropo-Regular.ttf
+# fonts:
+# - family: NerdFont
+# - fonts:
+#     - asset: assets/fonts/3270NerdFont-Condensed.ttf
+#   # weight: 500
+#   #   - asset: assets/fonts/3270NerdFont-Regular.ttf
+#   # weight: 500
+#   #   - asset: assets/fonts/3270NerdFont-SemiCondensed.ttf
+#   # weight: 500
+#   #   - asset: assets/fonts/3270NerdFontMono-Condensed.ttf
+#   # weight: 500
+#   #   - asset: assets/fonts/3270NerdFontMono-Regular.ttf
+#   # weight: 500
+#   #   - asset: assets/fonts/3270NerdFontMono-SemiCondensed.ttf
+#   # weight: 500
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

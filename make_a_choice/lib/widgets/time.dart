@@ -32,7 +32,7 @@ class TimeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: Stream.periodic(const Duration(seconds: 10)),
+      stream: Stream.periodic(const Duration(seconds: 60)),
       builder: (context, snapshot) {
         return Text(
             style: const TextStyle(

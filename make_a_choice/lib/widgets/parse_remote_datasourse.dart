@@ -8,7 +8,7 @@ class ParseRemoteDatasource {
     if (apiResponse.success && apiResponse.results != null) {
       for (var o in apiResponse.results!) {
         final object = o as ParseObject;
-        print('${object.objectId} - ${object.get<String>('call_tele2_data')}');
+        // print('${object.objectId} - ${object.get<String>('call_tele2_data')}');
         listPrises.add(object.get<String>('call_tele2_data')!);
       }
     }

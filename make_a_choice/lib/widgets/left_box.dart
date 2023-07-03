@@ -19,7 +19,7 @@ class LeftBoxAnimation extends StatelessWidget {
             isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         firstChild: IconButton(
             icon: Image.asset('assets/images/b-box.png'),
-            iconSize: 180,
+            iconSize: 230,
             onPressed: () {
               onClicked();
             }),
@@ -29,17 +29,23 @@ class LeftBoxAnimation extends StatelessWidget {
             IconButton(
                 icon: Image.asset('assets/images/b-box-o.png'),
                 alignment: Alignment.centerLeft,
-                iconSize: 300,
+                iconSize: 330,
                 onPressed: () {
-                   onClicked();
+                  //  onClicked();
                 }),
             Padding(
-              padding: const EdgeInsets.only(right: 30, top: 40),
-              child: Text(listPrises.first,
-                  style: const TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontStyle: FontStyle.normal)),
+              padding: const EdgeInsets.only(
+                  left: 200, top: 150, right: 30, bottom: 90),
+              child: Center(
+                heightFactor: 100,
+                widthFactor: 100,
+                child: Text(listPrises.first,
+                    // textAlign: TextAlign.right,
+                    style: const TextStyle(
+                        fontSize: 23,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal)),
+              ),
             ),
           ],
         ),
