@@ -1,17 +1,20 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+
 import 'package:make_a_choice/widgets/down_button.dart';
 import 'package:make_a_choice/widgets/left_box.dart';
 import 'package:make_a_choice/widgets/parse_remote_datasourse.dart';
 import 'package:make_a_choice/widgets/right_box.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+
+import 'firebase_options.dart';
 import 'widgets/text_up.dart';
 import 'widgets/up_row_three_widgets.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   const keyApplicationId = '5uFjH3WOFMWNxDqjMuBq7vZArsfOQsoxxhGMpTYL';
   const keyClientKey = 'aGWlndUmFRjfy716EPmCXGmikfYG5I2lrPOUglvd';
   const keyParseServerUrl = 'https://parseapi.back4app.com';
@@ -19,9 +22,9 @@ void main() async {
   await Parse().initialize(keyApplicationId, keyParseServerUrl,
       clientKey: keyClientKey, autoSendSessionId: true);
 
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
@@ -89,9 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // crossAxisAlignment : CrossAxisAlignment.center,
-          //   mainAxisSize : MainAxisSize.min,
           children: [
+            const Text(
+              '1234344',
+              style: TextStyle(color: Colors.white, fontSize: 200),
+            ),
             const UpRowThreeWidgets(),
             const SizedBox(
               height: 60,
