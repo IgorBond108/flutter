@@ -26,6 +26,14 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  await FirebaseAnalytics.instance.logBeginCheckout(
+      value: 10.0,
+      currency: 'USD',
+      items: [
+        AnalyticsEventItem(itemName: 'Socks', itemId: 'xjw73ndnw', price: 10.0),
+      ],
+      coupon: '10PERCENTOFF');
+
   runApp(const MyApp());
 }
 
@@ -93,10 +101,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              '1234344',
-              style: TextStyle(color: Colors.white, fontSize: 200),
-            ),
             const UpRowThreeWidgets(),
             const SizedBox(
               height: 60,
