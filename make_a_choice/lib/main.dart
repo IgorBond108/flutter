@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +14,9 @@ import 'firebase_options.dart';
 import 'widgets/text_up.dart';
 import 'widgets/up_row_three_widgets.dart';
 
+FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   const keyApplicationId = '5uFjH3WOFMWNxDqjMuBq7vZArsfOQsoxxhGMpTYL';
   const keyClientKey = 'aGWlndUmFRjfy716EPmCXGmikfYG5I2lrPOUglvd';
   const keyParseServerUrl = 'https://parseapi.back4app.com';
@@ -26,13 +28,13 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await FirebaseAnalytics.instance.logBeginCheckout(
+  unawaited(analytics.logBeginCheckout(
       value: 10.0,
       currency: 'USD',
       items: [
         AnalyticsEventItem(itemName: 'Socks', itemId: 'xjw73ndnw', price: 10.0),
       ],
-      coupon: '10PERCENTOFF');
+      coupon: '10PERCENTOFF'));
 
   runApp(const MyApp());
 }
