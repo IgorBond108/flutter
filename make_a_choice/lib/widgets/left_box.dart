@@ -20,7 +20,7 @@ class LeftBoxAnimation extends StatelessWidget {
             isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         firstChild: IconButton(
             icon: Image.asset('assets/images/b-box.png'),
-            iconSize: 230,
+            iconSize: 150,
             onPressed: () async {
               onClicked();
               await FirebaseAnalytics.instance.logEvent(
@@ -37,17 +37,17 @@ class LeftBoxAnimation extends StatelessWidget {
             IconButton(
                 icon: Image.asset('assets/images/b-box-o.png'),
                 alignment: Alignment.centerLeft,
-                iconSize: 330,
+                iconSize: 250,
                 onPressed: () {}),
             Padding(
               padding: const EdgeInsets.only(
-                  left: 200, top: 150, right: 30, bottom: 90),
+                  left: 180, top: 150, right: 20, bottom: 100),
               child: Center(
                 heightFactor: 100,
                 widthFactor: 100,
                 child: Text(listPrises.first,
                     style: const TextStyle(
-                        fontSize: 23,
+                        fontSize: 18,
                         color: Colors.white,
                         fontStyle: FontStyle.normal)),
               ),

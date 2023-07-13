@@ -25,16 +25,9 @@ void main() async {
       clientKey: keyClientKey, autoSendSessionId: true);
 
   await Firebase.initializeApp(
+    name: 'name-here',
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  unawaited(analytics.logBeginCheckout(
-      value: 10.0,
-      currency: 'USD',
-      items: [
-        AnalyticsEventItem(itemName: 'Socks', itemId: 'xjw73ndnw', price: 10.0),
-      ],
-      coupon: '10PERCENTOFF'));
 
   runApp(const MyApp());
 }
@@ -101,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const UpRowThreeWidgets(),
             const SizedBox(
@@ -112,12 +105,12 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 80,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(
-                  width: 350,
-                  height: 350,
+                  width: 300,
+                  height: 300,
                   child: LeftBoxAnimation(
                     onClicked: () {
                       isOpenedLeft = !isOpenedLeft;
@@ -128,8 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  width: 350,
-                  height: 350,
+                  width: 300,
+                  height: 300,
                   child: RightBoxAnimation(
                     onClicked: () {
                       isOpenedRight = !isOpenedRight;

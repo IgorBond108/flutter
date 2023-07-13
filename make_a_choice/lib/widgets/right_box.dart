@@ -19,7 +19,7 @@ class RightBoxAnimation extends StatelessWidget {
             isOpened ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         firstChild: IconButton(
             icon: Image.asset('assets/images/p-box.png'),
-            iconSize: 230,
+            iconSize: 150,
             onPressed: () {
               onClicked();
             }),
@@ -28,13 +28,13 @@ class RightBoxAnimation extends StatelessWidget {
           children: [
             IconButton(
                 icon: Image.asset('assets/images/p-box-o.png'),
-                iconSize: 330,
+                iconSize: 250,
                 onPressed: () {
                   // onClicked();
                 }),
             Padding(
               padding: const EdgeInsets.only(
-                  left: 40, top: 150, right: 190, bottom: 90),
+                  left: 30, top: 150, right: 170, bottom: 90),
               child: Center(
                 heightFactor: 100,
                 widthFactor: 100,
@@ -42,7 +42,7 @@ class RightBoxAnimation extends StatelessWidget {
                   listPrises.last,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 23,
+                    fontSize: 18,
                   ),
                 ),
               ),
