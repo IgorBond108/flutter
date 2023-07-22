@@ -1,0 +1,8 @@
+{
+    "@@locale": "ru",
+    "heyWorld": "Привет",
+    "@heyWorld": {
+      "type": "text",
+      "placeholders": {}
+    }
+  }

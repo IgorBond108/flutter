@@ -11,7 +11,7 @@ import 'package:tetris/values.dart';
 не пустое будет иметь цвет в нем чтобы показывать приземлившиеся фигуры
 это сетка 2 на 2 и поэтому надо создать список внутри списка
 */
-
+// late List<List<int>> grid;
 List<List<Tetromino?>> gameBoard = List.generate(
   colLenght,
   (i) => List.generate(
@@ -36,7 +36,7 @@ class _GameBoardState extends State<GameBoard> {
   int currentScore = 0;
 
   // game over status
-  bool gameOver = false;
+  // bool gameOver = false;
 
   @override
   void initState() {
@@ -59,6 +59,7 @@ class _GameBoardState extends State<GameBoard> {
         //проверить приземление
         checkLanding();
         clearLines();
+        // checkCollision(Directions.down);
         //движение вниз
         currentPiece.movePiece(Directions.down);
       });
@@ -69,11 +70,12 @@ class _GameBoardState extends State<GameBoard> {
   // return true -> есть столкновение
   // return false -> столкновения нет
   bool checkCollision(Directions direction) {
-    // Пройдитесь по каждой позиции или текущему фрагменту cne
+    // Пройдитесь по каждой позиции или текущему фрагменту
     for (int i = 0; i < currentPiece.position.length; i++) {
       //вычислите строку и столбец текущей позиции
-      int row = (currentPiece.position[i] / rowLenght).floor();
-      int col = currentPiece.position[i] % rowLenght;
+      int row =
+          (currentPiece.position[i] / rowLenght).floor(); // нижнее целое число
+      int col = currentPiece.position[i] % rowLenght; //  смотрим остток
       //отрегулируйте строку и столбец в зависимости от направления
       if (direction == Directions.left) {
         col -= 1;
@@ -86,6 +88,30 @@ class _GameBoardState extends State<GameBoard> {
       if (row >= colLenght || col < 0 || col >= rowLenght) {
         return true;
       }
+      /*
+Если после итерации по всем позициям не обнаружено коллизия, 
+оно возвращает false, указывающее на отсутствие коллизии.
+
+Если есть проблема, из-за которой коллизия обнаруживается неправильно
+, может быть несколько потенциальных причин. Вот несколько вещей, 
+которые нужно проверить:
+
+Убедитесь, что массив currentPiece.position правильно заполнен 
+позициями текущей фигуры. Если этот массив не обновляется должным 
+образом, проверка коллизий может не дать точных результатов.
+
+Проверьте, правильно ли определены переменные rowLength и colLength
+ и соответствуют ли размеры игрового поля. Если эти значения неверны,
+  проверка коллизий может быть выполнена против неправильных границ.
+
+Убедитесь, что условия обнаружения коллизии в операторе if верны. 
+Убедитесь, что сравнения 
+(строка >= colLength, col < 0, col >= rowLength) правильно 
+оцениваются как true при возникновении коллизии.
+
+Внимательно изучая эти аспекты, вы сможете выявлять и решать любые 
+проблемы, вызывающие неправильное обнаружение столкновений.
+      */
     }
     return false;
     //если коллизий не обнаружено, верните значение false
@@ -219,7 +245,8 @@ class _GameBoardState extends State<GameBoard> {
                     else if (gameBoard[row][col] != null) {
                       final Tetromino? tetrominoType = gameBoard[row][col];
                       return Pixel(
-                          color: tetrominoColors[tetrominoType], child: '');
+                          color: tetrominoColors[tetrominoType],
+                          child: 'кришна');
                     }
 
                     // blank pixel - пустой пиксель

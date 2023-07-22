@@ -25,7 +25,13 @@ class Piece {
     // называем инициализация фрагментов
     switch (type) {
       case Tetromino.L: // Буква Л
-        position = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1];
+        position = [
+          -7,
+          -6,
+          -5,
+          -4,
+          -3,
+        ];
         break;
       case Tetromino.J:
         position = [

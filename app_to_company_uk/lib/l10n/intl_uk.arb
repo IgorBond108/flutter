@@ -1,0 +1,8 @@
+{
+    "@@locale": "uk",
+    "heyWorld": "Hello",
+    "@heyWorld": {
+      "type": "text",
+      "placeholders": {}
+    }
+  }
