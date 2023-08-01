@@ -1,8 +1,27 @@
 {
-    "@@locale": "uk",
-    "heyWorld": "Hello",
-    "@heyWorld": {
-      "type": "text",
-      "placeholders": {}
-    }
-  }
+  "customsLogistics": "CUSTOMS LOGISTICS",
+  "tehpasport": "Технічний паспорт Тягача",
+  "hello": "Прiвет",
+  "indata": "Введіть свої дані нижче",
+  "tamozhnya": "Митниця Розмитнення",
+  "marshrut": "Маршрут (трасса) по країнам",
+  "tel_fio": "Телефон i ФІО водія",
+  "ivan_primer": "Іван Іванович Іванов",
+  "declaration": "Експортна декларація",
+  "photo_text": "фото/або внести дані вручну ",
+  "no_data": "номер i дата",
+  "zagruzka": "Завантажити",
+  "cmr": "Автодорожня накладна CMR",
+  "invois": "Інвойс",
+  "pas_vod": "Паспорт водія",
+  "pas_pric": "Технічний паспорт Причепа",
+  "dopolnitelno": "Додаткові документи",
+  "otpravitButton": "Отправить",
+  "kommentariy": "Комментарий",
+  "please_vibery_image": "Пожалуйста выберие изображение",
+  "pleaseviberyizobrazhenie": "Пожалуйста выберие изображение",
+  "pvi": "Пожалуйста выберие изображение",
+  "zagsgal": "Загрузить с галереи",
+  "zagscam": "Загрузить с камеры",
+  "zagruzit": "Загрузить"
+}

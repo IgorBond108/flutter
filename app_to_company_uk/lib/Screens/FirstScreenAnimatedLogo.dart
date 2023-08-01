@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) => InfoAboutZakaz(
+              builder: (context) => const InfoAboutZakaz(
                     title: '',
                   )));
     });
