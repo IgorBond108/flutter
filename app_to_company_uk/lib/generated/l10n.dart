@@ -160,6 +160,15 @@ class S {
     );
   }
 
+  /// `Загрузить `
+  String get load {
+    return Intl.message(
+      'Загрузить ',
+      name: 'load',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Автодорожная накладная CMR`
   String get cmr {

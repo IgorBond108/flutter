@@ -46,10 +46,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "pas_vod": MessageLookupByLibrary.simpleMessage("Паспорт водителя"),
         "photo_text": MessageLookupByLibrary.simpleMessage(
             "фото/либо ввести данные вручную "),
-        "please_vibery_image": MessageLookupByLibrary.simpleMessage(
-            "Пожалуйста выберие изображение"),
-        "pleaseviberyizobrazhenie": MessageLookupByLibrary.simpleMessage(
-            "Пожалуйста выберие изображение"),
         "pvi": MessageLookupByLibrary.simpleMessage(
             "Пожалуйста выберие изображение"),
         "tamozhnya": MessageLookupByLibrary.simpleMessage("Таможня Растаможка"),

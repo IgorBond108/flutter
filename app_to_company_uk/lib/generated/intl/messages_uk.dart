@@ -35,29 +35,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "invois": MessageLookupByLibrary.simpleMessage("Інвойс"),
         "ivan_primer":
             MessageLookupByLibrary.simpleMessage("Іван Іванович Іванов"),
-        "kommentariy": MessageLookupByLibrary.simpleMessage("Комментарий"),
+        "kommentariy": MessageLookupByLibrary.simpleMessage("Коментар"),
         "marshrut":
             MessageLookupByLibrary.simpleMessage("Маршрут (трасса) по країнам"),
         "no_data": MessageLookupByLibrary.simpleMessage("номер i дата"),
-        "otpravitButton": MessageLookupByLibrary.simpleMessage("Отправить"),
+        "otpravitButton": MessageLookupByLibrary.simpleMessage("Відправити"),
         "pas_pric":
             MessageLookupByLibrary.simpleMessage("Технічний паспорт Причепа"),
         "pas_vod": MessageLookupByLibrary.simpleMessage("Паспорт водія"),
         "photo_text": MessageLookupByLibrary.simpleMessage(
             "фото/або внести дані вручну "),
-        "please_vibery_image": MessageLookupByLibrary.simpleMessage(
-            "Пожалуйста выберие изображение"),
-        "pleaseviberyizobrazhenie": MessageLookupByLibrary.simpleMessage(
-            "Пожалуйста выберие изображение"),
         "pvi": MessageLookupByLibrary.simpleMessage(
-            "Пожалуйста выберие изображение"),
+            "Будь ласка оберіть зображення"),
         "tamozhnya":
             MessageLookupByLibrary.simpleMessage("Митниця Розмитнення"),
         "tehpasport":
             MessageLookupByLibrary.simpleMessage("Технічний паспорт Тягача"),
         "tel_fio": MessageLookupByLibrary.simpleMessage("Телефон i ФІО водія"),
-        "zagruzit": MessageLookupByLibrary.simpleMessage("Загрузить"),
-        "zagscam": MessageLookupByLibrary.simpleMessage("Загрузить с камеры"),
-        "zagsgal": MessageLookupByLibrary.simpleMessage("Загрузить с галереи")
+        "zagruzit": MessageLookupByLibrary.simpleMessage("Завантажити"),
+        "zagscam": MessageLookupByLibrary.simpleMessage("Завантажити з камери"),
+        "zagsgal": MessageLookupByLibrary.simpleMessage("Завантажити з галереї")
       };
 }

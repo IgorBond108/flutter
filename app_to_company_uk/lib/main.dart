@@ -1,5 +1,5 @@
 import 'package:app_to_company_uk/generated/l10n.dart';
-import 'package:camera/camera.dart';
+// import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'Screens/FirstScreenAnimatedLogo.dart';
@@ -25,10 +25,10 @@ import 'package:share_plus/share_plus.dart';
 Future<void> main() async {
   runApp(const FirstScreen());
   WidgetsFlutterBinding.ensureInitialized();
-  final cameras = await availableCameras();
+  // final cameras = await availableCameras();
 
   // Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
+  // final firstCamera = cameras.first;
 }
 
 class FirstScreen extends StatelessWidget {
