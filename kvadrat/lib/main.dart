@@ -82,6 +82,9 @@ class SquareAnimationState extends State<SquareAnimation> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IgnorePointer(
+              key: Key,
+              ignoringSemantics:Null
+              
               //we wrap the buttons in the ignore pointer so that they can be conveniently disabled - it was possible to use the built-in class in the button, but I decided to do it faster
               ignoring:
                   _isLeftButtonDisabled, // we work with each button separately
