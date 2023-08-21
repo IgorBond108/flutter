@@ -45,19 +45,19 @@ class NewsDetailsScreenCastWidgets extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: ClipRRect(
+                      child: const ClipRRect(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(8)),
+                            BorderRadius.all(Radius.circular(8)),
                         clipBehavior: Clip.hardEdge,
                         child: Column(
                           children: [
-                            const Image(
+                            Image(
                                 image: AssetImage(Images.jagadishaPandit1)),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
+                                  children: [
                                     Text(
                                       'Джагадиша пандит прабху',
                                       maxLines: 1,

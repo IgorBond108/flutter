@@ -60,8 +60,8 @@ class _TopPostersWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: const [
+    return const Stack(
+      children: [
         Image(image: AssetImage(Images.ayodhya1)),
         Positioned(
           top: 100,
@@ -109,8 +109,8 @@ class _ScoreWidget extends StatelessWidget {
       children: [
         TextButton(
             onPressed: () {},
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 SizedBox(
                   width: 50,
                   height: 50,
@@ -129,8 +129,8 @@ class _ScoreWidget extends StatelessWidget {
         Container(width: 1, height: 15, color: Colors.grey),
         TextButton(
           onPressed: () {},
-          child: Row(
-            children: const [
+          child: const Row(
+            children: [
               Icon(Icons.play_arrow),
               Text('Смотреть Ролик'),
             ],
@@ -172,7 +172,7 @@ class _PeopleWidget extends StatelessWidget {
     const jobTittleStyle = TextStyle(
         color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500);
 
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisSize: MainAxisSize.max,
@@ -180,21 +180,21 @@ class _PeopleWidget extends StatelessWidget {
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text('Заводская 41/1', style: nameStyle),
                 Text('Место', style: jobTittleStyle),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text('Заводская 41/1', style: nameStyle),
                 Text('Место', style: jobTittleStyle),
               ],
             ),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 20,
         ),
         Row(
@@ -203,14 +203,14 @@ class _PeopleWidget extends StatelessWidget {
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text('Заводская 41/1', style: nameStyle),
                 Text('Место', style: jobTittleStyle),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text('Заводская 41/1', style: nameStyle),
                 Text('Место', style: jobTittleStyle),
               ],
