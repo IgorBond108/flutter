@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../bottom_navigation_bar.dart';
-import '../square.dart';
 
 class PersonalAccount extends StatefulWidget {
   const PersonalAccount({super.key});

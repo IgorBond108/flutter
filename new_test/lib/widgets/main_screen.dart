@@ -4,7 +4,6 @@ import 'package:new_test/widgets/profile/personal_account.dart';
 import 'package:new_test/widgets/square.dart';
 
 import 'bottom_navigation_bar.dart';
-import 'favourites.dart';
 import 'list_news.dart';
 
 class MyHomePage extends StatefulWidget {

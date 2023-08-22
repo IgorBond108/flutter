@@ -18,7 +18,7 @@ class ItemsFavorities extends StatelessWidget {
             BoxShadow(
               color: Colors.grey,
               blurRadius: 2,
-              offset: Offset(1, 1), // Shadow position
+              offset: Offset(1, 1), 
             ),
           ], color: Colors.white, borderRadius: BorderRadius.circular(6)),
           child: Column(

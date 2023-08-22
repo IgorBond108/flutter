@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:new_test/widgets/profile/personal_account.dart';
-import 'package:new_test/widgets/qr_code/qr-duble.dart';
 import 'package:new_test/widgets/qr_code/screen_qr_pay.dart';
 
 import 'items_favorites.dart';

@@ -24,12 +24,7 @@ class ListNews extends StatelessWidget {
           ItemsNews('assets/icons_buttomNavigationBar/Rectangle8.png',
               'Суперакция от Веккер Закажи окно до конца сентября и получи мегаскидку плюсь бонусы на счёт'),
         ];
-
-        // if (index == 0) {
-        //   return const SizedBox(width: 10);
-        // } else {
         return NewsPicture(item: list[index]);
-        // }
       },
     );
   }

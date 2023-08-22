@@ -5,7 +5,6 @@ BottomNavigationBar bottomNavigationBar(int selectedTab, void onSelectTab) {
     type: BottomNavigationBarType.fixed,
     currentIndex: selectedTab,
     items: [
-      // навигацию делал сначала со встроенными в материал иконками - но позже подумал что вам нужно все как в фигме поэтому от туда вытянул их
       BottomNavigationBarItem(
           icon: Image.asset('assets/icons_buttomNavigationBar/Union.png'),
           label: 'Главная'),
