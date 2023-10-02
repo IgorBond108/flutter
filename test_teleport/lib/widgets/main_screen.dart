@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   const NotificationWidget(),
                 ],
               ),
-              const Row(
+              Row(
                 children: [
                   Text(
                     '   Баланс кошелька ImPay',
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Container(
-                width: MediaQuery.sizeOf(context).width,
+                width: MediaQuery.textScaleFactorOf(context),
                 height: 600,
                 decoration: const BoxDecoration(
                     color: Colors.white,
@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         topRight: Radius.circular(20))),
                 child: Column(
                   children: [
-                    const Row(
+                    Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
