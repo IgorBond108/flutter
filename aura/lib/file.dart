@@ -1,84 +1,141 @@
-// import 'package:buffer_image/buffer_image.dart';
-// import 'dart:io';
-// import 'package:image/image.dart' as img;
+import 'dart:io';
+import 'dart:collection';
+import 'package:image/image.dart' as img;
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 
-//  void main() async{
-//     try {
-//       final img.Image image =
-//       img.decodeImage(await File('/Users/admin/Documents/GitHub/flutter-app/aura/assets/fone.jpg').readAsBytes())!;
+void main() {
+  runApp(MyApp());
+}
 
-//   // Получите пиксели изображения
-//   final List<int> pixels = image.getBytes();
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(primaryColor: Colors.amber),
+      home: AuraDiagnosisApp(),
+    );
+  }
+}
 
+class AuraDiagnosisApp extends StatefulWidget {
+  @override
+  _AuraDiagnosisAppState createState() => _AuraDiagnosisAppState();
+}
 
-//       // File imageFile = File('/Users/admin/Documents/GitHub/flutter-app/aura/assets/1.jpg');
-//       BufferImage image2 = BufferImage.fromGray(pixels as GrayImage);
+class _AuraDiagnosisAppState extends State<AuraDiagnosisApp> {
+  File? _image;
+  Set<String> _fileLines = Set<String>();
 
-//       int width = image.width;
-//       int height = image.height;
-//       int eps = 10;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('АУРА - программа диагноз болезней'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text('imeg'),
+                Expanded(
+                  child: TextField(
+                    controller: TextEditingController(),
+                    readOnly: true,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    imagepicker();
 
-//       String fileData = '';
+                    // ImagePicker? result = await ImagePicker(
+                    //   type: FileType.image,
+                    // );
 
-//       for (int i = 0; i < width; i++) {
-//         for (int j = 0; j < height; j++) {
-//           int pixel = image2.pixels as int;
-//           int red = (pixel >> 16) & 0xff;
-//           int green = (pixel >> 8) & 0xff;
-//           int blue = pixel & 0xff;
+                    // if (result != null) {
+                    //   File imageFile = File(result.files.single.path!);
+                    //   setState(() {
+                    //     _image = imageFile;
+                    //   });
+                    // }
+                  },
+                  child: Text('Browse'),
+                ),
+              ],
+            ),
+            SizedBox(height: 16.0),
+            Expanded(
+              child: SingleChildScrollView(
+                child: _image != null
+                    ? FutureBuilder(
+                        future: _processImage(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.done) {
+                            return Text(snapshot.data.toString());
+                          } else {
+                            return CircularProgressIndicator();
+                          }
+                        },
+                      )
+                    : Container(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
-//           int violet = (red - green);
-//           int blueValue = blue;
-//           int cyan = (blue - green);
-//           int greenValue = green;
-//           int yellow = (red - green - blue);
-//           int orange = (red - green);
-//           int redValue = red;
+  Future<String> _processImage() async {
+    img.Image image = img.decodeImage(await _image!.readAsBytes())!;
 
-//           fileData.compareTo(String.fromEnvironment(
-//               "(%d, %d, %d, %d, %d, %d, %d)%n", violetStr, blueValue, cyan, greenValue, yellow, orange, redValue));
-//         }
-//       }
+    Map<int, int> colorCount = SplayTreeMap<int, int>();
+    for (int pixel in image.getBytes()) {
+      colorCount[pixel] = (colorCount[pixel] ?? 0) + 1;
+    }
 
-//       // File fileOut = File("C:\\Users\\User\\Desktop\\file.txt");
-//       // fileOut(fileData.toString());
-//       // fileOut.close();
+    Set<String> fileLines = Set<String>();
+    File file2 = File('C:\\Users\\User\\Desktop\\aura.txt');
+    List<String> lines2 = await file2.readAsLines();
 
-//       int sum1 = violet;
-//       String violetStr =
-//           "SAHASRARA.Headaches. Diseases of the nervous system and mental state disorders.САХАСРАРА.Головные боли. Заболевания нервной системы и нарушения психического состояния.";
-//       print(sum1 + " " + violetStr);
+    // for (int line in colorCount.keys.toSet().intersection(lines2.map((line) => int.parse(line)))) {
+    //   fileLines.add('$line: ${colorCount[line]} occurrences');
+    // }
 
-//       int sum2 = Math.abs(blue);
-//       String blueStr =
-//           "Ajna.Headache, fainting, dizziness, Sinusitis. eyes.Аджна.Головная боль, обмороки, головокружения. Синуситы. Глаза.";
-//       print(sum2 + " " + blueStr);
+    setState(() {
+      _fileLines = fileLines;
+    });
 
-//       int sum3 = Math.abs(cyan);
-//       String cyanStr =
-//           "VISHUDHA.Thyroid gland, ears, larynx, trachea, esophagus, lungs, stuttering.ВИШУДХА.Щитовидная железа, уши, гортань, трахея, пищевод. Легкие, заикание.";
-//       print(sum3 + " " + cyanStr);
+    return fileLines.join('\n');
+  }
+}
 
-//       int sum4 = Math.abs(green);
-//       String greenStr =
-//           "ANAHATA. Heart. Asthma. Osteochondrosis. Pneumonia. Tuberculosis. Mastopathy. Hypertension.АНАХАТА.Сердце. Астма. Остеохондроз. Пневмония. Туберкулез. Мастопатия. Гипертония.";
-//       print(sum4 + " " + greenStr);
+void imagepicker() async {
+  // Получаем изображение с помощью image_picker
+  final XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
 
-//       int sum5 = Math.abs(yellow);
-//       String yellowStr =
-//           "MANIPURA.Pancreas. Stomach. Kidneys. Spleen. Liver. Gallbladder. Diabetes.МАНИПУРА.Поджелудочная железа. Желудок. Почки. Селезенка. Печень. Желчный пузырь. Диабет.";
-//       print(sum5 + " " + yellowStr);
+  if (image == null) {
+    print('Изображение не выбрано');
+    return;
+  }
 
-//       int sum6 = Math.abs(orange);
-//       String orangeStr =
-//           "SVADHISTHANA.Ovaries. Testes. Impotence. Prostate. Fibroids. Cysts. Sexually transmitted diseases.СВАДХИСТАНА.Яичники. Семенники. Импотенция. Простата. Фибромы. Кисты. Венерические болезни.";
-//       print(sum6 + " " + orangeStr);
+  // Читаем изображение и преобразуем его в формат Image
+  final img.Image? decodedImage = img.decodeImage(await image.readAsBytes());
 
-//       int sum7 = Math.abs(red);
-//       String redStr =
-//           "MULADHARA.Adrenal glands. Obesity. Hemorrhoids, Intestines. Thrombophlebitis.МУЛАДХАРА.Надпочечники. Ожирение. Геморрой. Кишечник. Тромбофлебит.";
-//       print(sum7 + " " + redStr);
-//     } catch (IOException) {
-//       e.toString();
-//     }
-//   }
+  if (decodedImage == null) {
+    print('Не удалось декодировать изображение');
+    return;
+  }
+
+  // Здесь вы можете выполнять операции с изображением, используя библиотеку image
+
+  // Например, изменение размера изображения
+  final img.Image resizedImage = img.copyResize(decodedImage, width: 100, height: 100);
+
+  // Вывод информации о новом изображении
+  print('Ширина нового изображения: ${resizedImage.width}');
+  print('Высота нового изображения: ${resizedImage.height}');
+}
